@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import messagebox
 
 # extracting the key from config file
-config_file = "config.ini"
+config_file = r"C:\Users\muniz\OneDrive - Temple University\Desktop\Random Projects\Various-Projects\config.ini"
 config = ConfigParser()
 config.read(config_file)
 api_key = config['Weather']['api']
@@ -49,7 +49,7 @@ city_entry.pack()
 Search_btn = Button(app, text= "Search Weather", width=12, command=search)
 Search_btn.pack()
 
-location_lbl = Label(app, text= "Location", font = {'bold', 20})
+location_lbl = Label(app, text= "Location", font = ('bold', 2))
 location_lbl.pack()
 
 temperature_label = Label(app, text = "")
