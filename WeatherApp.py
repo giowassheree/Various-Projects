@@ -10,6 +10,7 @@ config.read(config_file)
 api_key = config['Weather']['api']
 url = 'https://api.openweathermap.org/data/2.5/weather?q={}&appid={}'
 
+# Function to get the weather details
 def getweather(city):
     result = requests.get(url.format(city, api_key))
 
@@ -25,7 +26,7 @@ def getweather(city):
     else:
         print("No Content Found")
     
-
+# Function to search for the city
 def search():
     city = city_text.get()
     weather = getweather(city)
@@ -36,16 +37,21 @@ def search():
     else:
         messagebox.showerror('Error', "Cannot find {}".format(city))
 
+
+# Main code
+
+# Creating the main app
 app = Tk()
 
 app.title("Weather App")
 
-app.geometry("300x300")
+app.geometry("300x300") # Window size
 
 city_text = StringVar()
 city_entry = Entry(app, textvariable=city_text)
 city_entry.pack()
 
+# Adding various labels and buttons to the app
 Search_btn = Button(app, text= "Search Weather", width=12, command=search)
 Search_btn.pack()
 
